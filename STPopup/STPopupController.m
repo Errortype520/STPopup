@@ -101,7 +101,6 @@ static NSMutableSet *_retainedPopupControllers;
 @end
 
 @interface STPopupController () <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, STPopupNavigationTouchEventDelegate>
-
 @end
 
 @implementation STPopupController
