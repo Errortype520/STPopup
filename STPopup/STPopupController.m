@@ -713,7 +713,15 @@ static NSMutableSet *_retainedPopupControllers;
     
     CGFloat offsetY = 0;
     if (self.style == STPopupStyleBottomSheet) {
-        offsetY = keyboardHeight;
+        //offsetY = keyboardHeight;
+        CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+        
+        if (_containerView.frame.origin.y - keyboardHeight > statusBarHeight) {
+            offsetY = keyboardHeight;
+        }
+        else {
+            offsetY = _containerView.frame.origin.y - statusBarHeight;
+        }
     }
     else {
         CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
