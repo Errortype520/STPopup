@@ -190,4 +190,8 @@ typedef NS_ENUM(NSUInteger, STPopupTransitionStyle) {
 
 @end
 
+@interface STPopupContainerViewController : UIViewController
+
+@end
+
 NS_ASSUME_NONNULL_END
