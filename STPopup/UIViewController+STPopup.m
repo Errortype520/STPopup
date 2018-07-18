@@ -15,6 +15,7 @@
 @dynamic contentSizeInPopup;
 @dynamic landscapeContentSizeInPopup;
 @dynamic popupController;
+@dynamic offsetPositionInPopup;
 
 + (void)load
 {
@@ -141,6 +142,14 @@
 - (CGSize)landscapeContentSizeInPopup
 {
     return [objc_getAssociatedObject(self, @selector(landscapeContentSizeInPopup)) CGSizeValue];
+}
+
+- (void)setOffsetPositionInPopup:(CGPoint)offsetPositionInPopup {
+    objc_setAssociatedObject(self, @selector(offsetPositionInPopup), [NSValue valueWithCGPoint:offsetPositionInPopup], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CGPoint)offsetPositionInPopup {
+    return [objc_getAssociatedObject(self, @selector(offsetPositionInPopup)) CGPointValue];
 }
 
 - (void)setPopupController:(STPopupController *)popupController

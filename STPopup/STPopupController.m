@@ -149,7 +149,7 @@ static NSMutableSet *_retainedPopupControllers;
 
 - (UIViewController *)topViewController
 {
-  return _viewControllers.lastObject;
+    return _viewControllers.lastObject;
 }
 
 - (BOOL)presented
@@ -360,7 +360,7 @@ static NSMutableSet *_retainedPopupControllers;
         // Capture view in "fromViewController" to avoid "viewWillAppear" and "viewDidAppear" being called.
         UIGraphicsBeginImageContextWithOptions(fromViewController.view.bounds.size, NO, [UIScreen mainScreen].scale);
         [fromViewController.view drawViewHierarchyInRect:fromViewController.view.bounds afterScreenUpdates:NO];
-
+        
         UIImageView *capturedView = [[UIImageView alloc] initWithImage:UIGraphicsGetImageFromCurrentImageContext()];
         
         UIGraphicsEndImageContext();
@@ -508,13 +508,14 @@ static NSMutableSet *_retainedPopupControllers;
 - (void)layoutContainerView
 {
     _backgroundView.frame = _containerViewController.view.bounds;
- 
+    
     CGFloat preferredNavigationBarHeight = [self preferredNavigationBarHeight];
     CGFloat navigationBarHeight = _navigationBarHidden ? 0 : preferredNavigationBarHeight;
     CGSize contentSizeOfTopView = [self contentSizeOfTopView];
     CGFloat containerViewWidth = contentSizeOfTopView.width;
     CGFloat containerViewHeight = contentSizeOfTopView.height + navigationBarHeight;
     CGFloat containerViewY = (_containerViewController.view.bounds.size.height - containerViewHeight) / 2;
+    containerViewY += self.topViewController.offsetPositionInPopup.y;
     
     if (self.style == STPopupStyleBottomSheet) {
         containerViewY = _containerViewController.view.bounds.size.height - containerViewHeight;

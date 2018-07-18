@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) IBInspectable CGSize landscapeContentSizeInPopup;
 
+@property (nonatomic, assign) IBInspectable CGPoint offsetPositionInPopup;
+
 /**
  Popup controller which is containing the view controller.
  Will be nil if the view controller is not contained in any popup controller.
