@@ -20,7 +20,7 @@
 {
     if (self = [super init]) {
         _containerView = containerView;
-        _action = action;
+        _action = action; 
     }
     return self;
 }
