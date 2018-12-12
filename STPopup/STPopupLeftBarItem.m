@@ -13,7 +13,7 @@
     UIControl *_customView;
     UIView *_bar1;
     UIView *_bar2;
-}
+} 
 
 - (instancetype)initWithTarget:(id)target action:(SEL)action
 {
